@@ -1,0 +1,34 @@
+1. 
+MATCH (m:Movie) RETURN m AS Movies
+2. 
+MATCH (n:Person {name: "Hugo Weaving"})-[r:ACTED_IN]->(m) RETURN m AS HugoMovies
+3. 
+MATCH (directors:Person)-[:DIRECTED]->(m)<-[:ACTED_IN]-(hugo:Person {name: 'Hugo Weaving'}) RETURN directors as HugoDirectors
+4. 
+MATCH (actors:Person)-[:ACTED_IN]->(m)<-[:ACTED_IN]-(hugo:Person {name: 'Hugo Weaving'}) RETURN actors as HugoActors
+5. 
+MATCH (actors:Person)-[:ACTED_IN]->(m) WHERE m.title = "The Matrix" WITH actors as MatrixActors MATCH (MatrixActors)-[:ACTED_IN]->(p) RETURN p AS MatrixActorsMovies
+6. 
+MATCH (actors:Person)-[:ACTED_IN]->(m) with actors, count(r) as movies return actors, movies
+7. 
+MATCH (n:Person)-[:DIRECTED]->(m)<-[:WROTE]-(n:Person) return n as DirectorandWriter
+8. 
+MATCH (keanu:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(hugo:Person {name: 'Hugo Weaving'}) return m as MovieWithKeanuAndHugo
+9. 
+CREATE (CaptainAmerica:Movie {title:'Captain America: The First Avenger', released:2011, tagline:'When patriots become heroes'})
+CREATE (Evans:Person {name:'Chris Evans', born:1981})
+CREATE (Atwell:Person {name:'Hayley Atwell', born:1982})
+CREATE (Stan:Person {name:'Sebastian Stan', born:1982})
+CREATE (Jones:Person {name:'Tommy Lee Jones', born:1946})
+CREATE (Director:Person {name:'Joe Johnston', born:1950})
+CREATE (Writer:Person {name:'Christopher Markus', born:1965})
+CREATE
+(Evans)-[:ACTED_IN {roles:['Captain America']}]->(CaptainAmerica),
+(Atwell)-[:ACTED_IN {roles:['Trinity']}]->(CaptainAmerica),
+(Stan)-[:ACTED_IN {roles:['Morpheus']}]->(CaptainAmerica),
+(Jones)-[:ACTED_IN {roles:['Agent Smith']}]->(CaptainAmerica),
+(hugoWeaving:Person {name: 'Hugo Weaving'})-[:ACTED_IN {roles:['Red Skull']}]->(CaptainAmerica),
+(Director)-[:DIRECTED]->(CaptainAmerica),
+(LanaW)-[:DIRECTED]->(CaptainAmerica),
+(Writer)-[:WROTE]->(CaptainAmerica)
+MATCH (p:Person)-[]->(m) WHERE m.title = "Captain America: The First Avenger" RETURN p,m
