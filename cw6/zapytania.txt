@@ -1,0 +1,69 @@
+1.
+MATCH (n:town {name: 'Darjeeling'}), (m:peak {name: 'Sandakphu'})
+with n,m
+MATCH path = AllShortestPaths((n)-[*]-(m))
+RETURN path
+
+2.
+MATCH (n:town {name: 'Darjeeling'}), (m:peak {name: 'Sandakphu'})
+with n,m
+MATCH path = AllShortestPaths((n)-[*]-(m))
+where ALL(road in relationships(path) WHERE road.winter="true")
+RETURN path
+3.
+MATCH road = (n)-[*]->(m) WHERE n.name = "Darjeeling" AND m.name = "Sandakphu"
+RETURN road, REDUCE(zero=0, r IN relationships(road)|zero + r.distance) AS distance ORDER BY distance ASC
+
+MATCH (n)-[r:twowheeler]->(m) WHERE r.summer = "true" AND n.name = "Darjeeling" RETURN n,r,m
+
+4.
+MATCH (n:Flight)-[r:ORIGIN]->(m:Airport) RETURN m AS Airport, COUNT(r) AS FlightsNumber ORDER BY FlightsNumber ASC
+
+
+##POMOCNICZE TABELE
+MATCH (startAirport:Airport)<-[:ORIGIN]-(flight:Flight)-[:DESTINATION]->(destAirport:Airport), (flight)<-[:ASSIGN]-(ticket:Ticket)
+WITH startAirport, flight, destAirport, min(ticket.price) as minimumPriceTicket
+MATCH (flight)<-[:ASSIGN]-(cTicket:Ticket {price: minimumPriceTicket})
+WITH startAirport, flight, destAirport, cTicket
+CREATE (startAirport)-[bestTicket:BEST_TICKET {idFlight:id(flight), idTicket:id(cTicket), price: cTicket.price, class: cTicket.class}]->(destAirport)
+RETURN bestTicket
+
+5.
+MATCH airConn = (startAirport:Airport {name: "LAX"})-[bestTicket:BEST_TICKET*1..7]->(destAirport:Airport) WITH airConn, destAirport, reduce(totalPrice=0, rel IN relationships(airConn)|totalPrice + rel.price) as fullCost WHERE fullCost < 3000
+RETURN DISTINCT destAirport
+
+6.
+MATCH airConn = ((startAirport:Airport {name: "LAX"})-[bestTicket:BEST_TICKET*1..10]->(destAirport:Airport {name: "DAY"})) WHERE ALL(x IN NODES(airConn) 
+WHERE 
+SINGLE(y IN NODES(airConn) WHERE y = x)) WITH airConn, relationships(airConn) AS relat
+UNWIND relat AS cheapestFlight
+MATCH (cTicket) WHERE ID(cTicket) = cheapestFlight.idTicket WITH airConn, cheapestFlight, sum(cTicket.price) AS fullCost
+RETURN airConn, fullCost ORDER BY fullCost ASC
+
+7.
+MATCH airConn = ((:Airport {name: "LAX"})-[bestTicket:BEST_TICKET*1..10]->(destAirport:Airport {name: "DAY"})) WHERE ALL(x IN NODES(airConn) WHERE SINGLE(y IN NODES(airConn) WHERE y = x)) WITH airConn, relationships(airConn) AS relat
+UNWIND relat AS cheapestFlight
+MATCH (cTicket) WHERE ID(cTicket) = cheapestFlight.idTicket WITH airConn, cheapestFlight, sum(cTicket.price) AS fullCost
+RETURN airConn, fullCost ORDER BY fullCost ASC LIMIT 1
+
+8.
+##POMOCNICZE TABELE
+MATCH (startAirport:Airport)<-[:ORIGIN]-(bFlight:Flight)-[:DESTINATION]->(destAirport:Airport), (bFlight)<-[:ASSIGN]-(bTicket:Ticket)
+WITH startAirport, bFlight, destAirport, bTicket  WHERE bTicket.class = "business"
+CREATE (startAirport)-[businessTicket:BUSINESS_TICKET {idFlight: id(bFlight), idTicket: id(bTicket), price: bTicket.price, class: bTicket.class}]->(destAirport)
+RETURN businessTicket
+
+#QUERY
+MATCH airConn = ((:Airport {name: "LAX"})-[businessTicket:BUSINESS_TICKET*1..10]->(destAirport:Airport {name: "DAY"}))WHERE ALL(x IN NODES(airConn) WHERE SINGLE(y IN NODES(airConn) WHERE y = x)) WITH airConn, relationships(airConn) AS relat
+UNWIND relat As businessFlight
+MATCH (bTicket) WHERE ID(bTicket) = businessFlight.idTicket WITH airConn, sum(bTicket.price) AS fullCost
+RETURN airConn, fullCost ORDER BY fullCost LIMIT 1
+
+9.
+MATCH (startAirport:Airport)-[:ORIGIN]-(flight:Flight)-[:DESTINATION]-(destAirport:Airport) WITH flight, (startAirport.name + destAirport.name) AS noSame RETURN flight.airline AS airlines, count(noSame) AS numberOfCities ORDER BY numberOfCities ASC
+
+10.
+MATCH airConn = ((:Airport)-[:BEST_TICKET*2]->(:Airport)) WHERE ALL(x IN NODES(airConn) WHERE SINGLE(y IN NODES(airConn) WHERE y = x)) WITH airConn, relationships(airConn) AS relat
+UNWIND relat As flightTickets
+MATCH (cTicket) WHERE ID(cTicket) = flightTickets.idTicket WITH airConn, sum(cTicket.price) AS fullCost
+RETURN airConn, fullCost ORDER BY fullCost LIMIT 1
