@@ -1,0 +1,12 @@
+*************************
+Adding value.
+RAW DATA:
+{'firstName': 'Pawel', 'lastName': 'Mieszko', 'gender': 'male', 'age': 98, 'address': {'streetAddress': '23', 'city': 'New York', 'state': 'US', 'postalCode': '12341'}, 'phoneNumbers': [{'type': 'mobile', 'number': '6264234334'}]}
+*************************
+Editing value.
+RAW DATA:
+{'firstName': 'Kamil', 'lastName': 'Mieszko', 'gender': 'male', 'age': 98, 'address': {'streetAddress': '23', 'city': 'New York', 'state': 'US', 'postalCode': '12341'}, 'phoneNumbers': [{'type': 'mobile', 'number': '6264234334'}]}
+*************************
+Deleting value.
+RAW DATA:
+None
