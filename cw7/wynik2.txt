@@ -1,0 +1,26 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68818CIpTImMfK0L86+CZfFgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:03:43 GMT
+ETag: "1zRs5vbcUUDSIx0fdWIuO9"
+Date: Sun, 20 Dec 2020 11:05:00 GMT
+Content-Type: application/json
+Content-Length: 318
+
+{
+    "firstName": "Anna",
+    "lastName": "Adamczyk",
+    "gender": "female",
+    "age": 52,
+    "address": {
+        "streetAddress": "113",
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": "163426"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "84929529834" }
+    ]
+}%

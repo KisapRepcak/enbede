@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68804QIpTIlMfKMHlN8E2+LAA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:08:03 GMT
+ETag: "63sShMsAFluBxzhndv5Stc"
+Date: Sun, 20 Dec 2020 11:08:03 GMT
+Content-Type: application/json
+Content-Length: 323
+
+{
+    "firstName": "John",
+    "lastName": "Wick",
+    "gender": "male",
+    "age": 42,
+    "address": {
+        "streetAddress": "12",
+        "city": "Chicago",
+        "state": "US",
+        "postalCode": "73"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "404850383" },
+    "status": "hero"
+    ]
+}%

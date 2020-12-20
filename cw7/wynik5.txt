@@ -1,0 +1,26 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68ces9RCiRKY+VIWBj8E2+LAA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:28:16 GMT
+ETag: "3rGB5qIKBClsF7ZG4FQlyr"
+Date: Sun, 20 Dec 2020 11:28:16 GMT
+Content-Type: application/json
+Content-Length: 309
+
+{
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "gender": "male",
+    "age": 96,
+    "address": {
+        "streetAddress": "126",
+        "city": "San Jone",
+        "state": "CA",
+        "postalCode": "394221"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "7383627627" }
+    ]
+}%

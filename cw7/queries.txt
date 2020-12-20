@@ -1,0 +1,149 @@
+1.
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "gender": "male",
+    "age": 24,
+    "address": {
+        "streetAddress": "126",
+        "city": "San Jone",
+        "state": "CA",
+        "postalCode": "394221"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "7383627627" }
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/jankowalski?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "Pawel",
+    "lastName": "Mieszko",
+    "gender": "male",
+    "age": 98,
+    "address": {
+        "streetAddress": "23",
+        "city": "New York",
+        "state": "US",
+        "postalCode": "12341"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "6264234334" }
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/pawelmieszko?returnbody=true
+
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "John",
+    "lastName": "Wick",
+    "gender": "male",
+    "age": 42,
+    "address": {
+        "streetAddress": "12",
+        "city": "Chicago",
+        "state": "US",
+        "postalCode": "73"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "404850383" }
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/johnwick?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "Neo",
+    "lastName": "The One",
+    "gender": "male",
+    "age": 27,
+    "address": {
+        "streetAddress": "1",
+        "city": "Matrix",
+        "state": "US",
+        "postalCode": "001"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "1" }
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/neo?returnbody=true
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "Anna",
+    "lastName": "Adamczyk",
+    "gender": "female",
+    "age": 52,
+    "address": {
+        "streetAddress": "113",
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": "163426"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "84929529834" }
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/annaadamczyk?returnbody=true
+
+
+2.
+curl -i http://127.0.0.1:8098/buckets/s23788/keys/annaadamczyk
+
+3.
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "John",
+    "lastName": "Wick",
+    "gender": "male",
+    "age": 42,
+    "address": {
+        "streetAddress": "12",
+        "city": "Chicago",
+        "state": "US",
+        "postalCode": "73"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "404850383" },
+    "status": "hero"
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/johnwick?returnbody=true
+
+4.
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "John",
+    "lastName": "Wick",
+    "gender": "male",
+    "age": 42,
+    "address": {
+        "streetAddress": "12",
+        "city": "Chicago",
+        "state": "US",
+        "postalCode": "73"
+    }
+}' http://127.0.0.1:8098/buckets/s23788/keys/johnwick?returnbody=true
+
+5.
+curl -i -XPUT -H "Content-Type: application/json" -d '{
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "gender": "male",
+    "age": 96,
+    "address": {
+        "streetAddress": "126",
+        "city": "San Jone",
+        "state": "CA",
+        "postalCode": "394221"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "7383627627" }
+    ]
+}' http://127.0.0.1:8098/buckets/s23788/keys/jankowalski?returnbody=true
+6.
+curl -i -XDELETE http://127.0.0.1:8098/buckets/s23788/keys/pawelmieszko
+7.
+curl -i http://127.0.0.1:8098/buckets/s23788/keys/pawelmieszko
+
+8.
+curl -i -XPOST -H "Content-Type: application/json" -d '{
+    "pole": "jedno"
+}' http://127.0.0.1:8098/buckets/s23788/keys/?returnbody=true
+
+9.
+curl -i http://127.0.0.1:8098/buckets/s23788/keys/H5LQhyKebxkJ2yhhvJIh4hSLzjz
+
+10.
+curl -i -XDELETE http://127.0.0.1:8098/buckets/s23788/keys/H5LQhyKebxkJ2yhhvJIh4hSLzjz

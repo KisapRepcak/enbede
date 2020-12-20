@@ -1,0 +1,134 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68ces9RCiRMY+VIXdV8E2+LAA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 10:58:53 GMT
+ETag: "7cH6c3mU4qQa0Hv1VHVEKX"
+Date: Sun, 20 Dec 2020 10:58:53 GMT
+Content-Type: application/json
+Content-Length: 309
+
+{
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "gender": "male",
+    "age": 24,
+    "address": {
+        "streetAddress": "126",
+        "city": "San Jone",
+        "state": "CA",
+        "postalCode": "394221"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "7383627627" }
+    ]
+}%
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68d28TRCiRMY+VwW118E2+LAA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:02:30 GMT
+ETag: "5eDznVTtDLrz4hcOknGKAC"
+Date: Sun, 20 Dec 2020 11:02:30 GMT
+Content-Type: application/json
+Content-Length: 310
+
+{
+    "firstName": "Pawel",
+    "lastName": "Mieszko",
+    "gender": "male",
+    "age": 98,
+    "address": {
+        "streetAddress": "23",
+        "city": "New York",
+        "state": "US",
+        "postalCode": "12341"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "6264234334" }
+    ]
+}%
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68804QIpTImMfKELk6+CZfFgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:02:49 GMT
+ETag: "2Qs3pExlccMeumCkjGXv8h"
+Date: Sun, 20 Dec 2020 11:02:49 GMT
+Content-Type: application/json
+Content-Length: 301
+
+{
+    "firstName": "John",
+    "lastName": "Wick",
+    "gender": "male",
+    "age": 42,
+    "address": {
+        "streetAddress": "12",
+        "city": "Chicago",
+        "state": "US",
+        "postalCode": "73"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "404850383" }
+    ]
+}%
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm688WI7RCiRMY+VoWJ18E2+LAA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:03:20 GMT
+ETag: "575aGzX5mOXjvNTC5Kqlpy"
+Date: Sun, 20 Dec 2020 11:03:20 GMT
+Content-Type: application/json
+Content-Length: 294
+
+{
+    "firstName": "Neo",
+    "lastName": "The One",
+    "gender": "male",
+    "age": 27,
+    "address": {
+        "streetAddress": "1",
+        "city": "Matrix",
+        "state": "US",
+        "postalCode": "001"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "1" }
+    ]
+}%
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVm68818CIpTImMfK0L86+CZfFgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23788>; rel="up"
+Last-Modified: Sun, 20 Dec 2020 11:03:43 GMT
+ETag: "1zRs5vbcUUDSIx0fdWIuO9"
+Date: Sun, 20 Dec 2020 11:03:43 GMT
+Content-Type: application/json
+Content-Length: 318
+
+{
+    "firstName": "Anna",
+    "lastName": "Adamczyk",
+    "gender": "female",
+    "age": 52,
+    "address": {
+        "streetAddress": "113",
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": "163426"
+    },
+    "phoneNumbers": [
+        { "type": "mobile", "number": "84929529834" }
+    ]
+}%
