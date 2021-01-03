@@ -39,8 +39,8 @@ object cw9 {
 
       }
 }
-    val c = new AnswerContainer[String](new Yes[String]("test"))
-    println(c.applyFunction((x: String) => x.length).asInstanceOf[Yes[Int]].value)
+    val thing = new AnswerContainer[String](new Yes[String]("test"))
+    println(thing.applyFunction((x: String) => x.length).asInstanceOf[Yes[Int]].value)
 //    4.
 //TODO
 
