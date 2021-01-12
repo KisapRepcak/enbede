@@ -39,10 +39,24 @@ object cw9 {
 
       }
 }
-    val thing = new AnswerContainer[String](new Yes[String]("test"))
-    println(thing.applyFunction((x: String) => x.length).asInstanceOf[Yes[Int]].value)
+    val c = new AnswerContainer[String](new Yes[String]("test"))
+    println(c.applyFunction((x: String) => x.length).asInstanceOf[Yes[Int]].value)
 //    4.
-//TODO
+    def getOrElse[A](value: Maybe[A], secondValue: A): A = {
+      if (value.isInstanceOf[No]) {
+        secondValue
+      }
+      else {
+        value.asInstanceOf[Yes[A]].value
+      }
+    }
+
+    val nop = new No
+    val yep = new Yes[String]("Yeaay")
+
+    println(getOrElse[String](nop, "i think"))
+    println(getOrElse[String](yep, "i think"))
+
 
   }
 }
